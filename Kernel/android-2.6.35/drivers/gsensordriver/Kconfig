@@ -1,0 +1,21 @@
+menuconfig GSENSOR
+	bool "G-Sensor support"
+	default n
+	help
+	  G-Sensor support
+
+if GSENSOR
+
+config ADXL345_GSENSOR_MODULE 
+	bool "Gsensor support"
+	depends on GSENSOR
+	default y
+	
+config GSENSOR_AUTO_ROTATION_TEST
+	bool "Enable auto rotation test by itself"
+	depends on ADXL345_GSENSOR_MODULE
+	help
+	  Say Y here to enable support for auto rotation testing.
+	  
+endif # GSENSOR
+
